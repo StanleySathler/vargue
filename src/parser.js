@@ -147,12 +147,31 @@ const injectPostIntoPostLayout = post => {
   );
 };
 
+const existDir = dir =>
+  fs.existsSync(
+    path.join(
+      process.cwd(),
+      dir
+    )
+  );
+
+const createDir = dir =>
+  fs.mkdirSync(
+    path.join(
+      process.cwd(),
+      dir
+    )
+  );
+
 /**
  * Write a post file in the output dir.
  * @param {String} filename e.g. 'post-1'
  * @param {String} html e.g. <html><body>...</body></html>
  */
 const writePostFile = (filename, html) => {
+  if (!existDir('public'))
+    createDir('public');
+
   fs.writeFileSync(
     path.join(
       process.cwd(),

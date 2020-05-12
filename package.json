@@ -1,5 +1,5 @@
 {
-  "name": "blog-generator",
+  "name": "vargue",
   "version": "1.0.0",
   "description": "A simple static blog generator.",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "Stanley Sathler",
   "license": "MIT",
   "bin": {
-    "blog-generator": "bin/blog-generator"
+    "vargue": "bin/vargue"
   },
   "dependencies": {
     "chalk": "^4.0.0",

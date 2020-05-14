@@ -20,7 +20,7 @@ const {
 module.exports.build = function() {
   loadPrismLanguages(['textile']);
 
-  const postFiles = readDir('posts');
+  const postFiles = readDir('posts').reverse();
 
   // Parse every single post.
   // Post: { filename, headers, html }

@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const loadPrismLanguages = require('prismjs/components/');
 
 const { compileMarkdownFile } = require('./parser');
+const { isPublished } = require('./post');
 const {
   injectPostIntoPostLayout,
   injectPostsIntoIndexLayout,
@@ -24,7 +25,9 @@ module.exports.build = function() {
 
   // Parse every single post.
   // Post: { filename, headers, html }
-  const posts = postFiles.map(compileMarkdownFile);
+  const posts = postFiles
+    .map(compileMarkdownFile)
+    .filter(isPublished);
 
   // Build a page for every post.
   posts.forEach(post => {
